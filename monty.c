@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	file_path = argv[1];
 	file = fopen(file_path, "r");
 	check_file_open(file, file_path);
-	inst = make_instructions();
+	make_instructions(&stack, &inst);
 
 	line_size = getline(&line, &line_bfsize, file);
 	while (line_size >= 0)

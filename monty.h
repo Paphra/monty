@@ -37,7 +37,7 @@ typedef struct instruction_s
 /* Prototypes */
 void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
-instruction_t *make_instructions(instruction_t *inst);
+void make_instructions(stack_t **stack, instruction_t **inst);
 
 
 #endif /* #ifndef MONTY_H */
