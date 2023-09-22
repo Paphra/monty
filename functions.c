@@ -4,7 +4,7 @@
  * make_instructions - make the instructions
  * Return: nothing
  */
-void make_instructions()
+void make_instructions(void)
 {
 	instruction_t *code;
 
@@ -22,5 +22,5 @@ void make_instructions()
 	code++;
 
 	code->opcode = "pall";
-        code->f = *stack_pall;
+	code->f = *stack_pall;
 }

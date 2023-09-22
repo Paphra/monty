@@ -46,7 +46,7 @@ void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
 void check_malloc(void *pointer);
 
-void make_instructions();
+void make_instructions(void);
 
 
 void stack_push(stack_t **stack, unsigned int line_number);
