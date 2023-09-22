@@ -2,19 +2,39 @@
 
 /**
  * make_instructions - make the instructions
- * @instruction: the instruction
  * Return: nothing
  */
-void make_instructions(instruction_t **instructions)
+void make_instructions()
 {
-	instruction_t *inst = *instructions;
+	instruction_t *tmp;
+	codes_count = 2;
 
-	inst->opcode = "push";
-	inst->f = *stack_push;
-	inst++;
+	codes = malloc(sizeof(instruction_t *) * codes_count);
+	if (codes == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	tmp = malloc(sizeof(instruction_t));
+	if (tmp == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	*codes = tmp;
+	tmp->opcode = "push";
+	tmp->f = *stack_push;
+	tmp++;
 
-	inst->opcode = "pall";
-        inst->f = *stack_pall;
-	inst++;
+	tmp->opcode = "pall";
+        tmp->f = *stack_pall;
+}
+
+/**
+ * free_instructions - free the instructions array
+ * Return: nothing
+ */
+void free_instructions(void)
+{
 
 }

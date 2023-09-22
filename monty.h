@@ -3,6 +3,7 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -34,12 +35,17 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* Globals */
+instruction_t **codes;
+int top, bottom, codes_count;
+char *line;
+
 /* Prototypes */
 void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
 void check_malloc(void *pointer);
 
-void make_instructions(stack_t **stack, instruction_t **inst);
+void make_instructions();
 
 
 void stack_push(stack_t **stack, unsigned int line_number);

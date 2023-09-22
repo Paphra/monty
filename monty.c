@@ -11,15 +11,15 @@ int main(int argc, char **argv)
 	char *file_path, *line;
 	FILE *file;
 	ssize_t line_size;
-	stack_t *stack;
-	instruction_t *inst;
+	stack_t **stack;
 	size_t line_bfsize = 0, line_count = 0;
 
 	check_usage(argc);
 	file_path = argv[1];
 	file = fopen(file_path, "r");
 	check_file_open(file, file_path);
-	make_instructions(&stack, &inst);
+	make_instructions();
+	(void) stack;
 
 	line_size = getline(&line, &line_bfsize, file);
 	while (line_size >= 0)
