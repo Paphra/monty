@@ -2,12 +2,19 @@
 
 /**
  * make_instructions - make the instructions
- * @stack: the stack
- * @inst: the instruction
+ * @instruction: the instruction
  * Return: nothing
  */
-void make_instructions(stack_t **stack, instruction_t **inst)
+void make_instructions(instruction_t **instructions)
 {
-	(void) inst;
-	(void) stack;
+	instruction_t *inst = *instructions;
+
+	inst->opcode = "push";
+	inst->f = *stack_push;
+	inst++;
+
+	inst->opcode = "pall";
+        inst->f = *stack_pall;
+	inst++;
+
 }

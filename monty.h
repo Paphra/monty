@@ -37,7 +37,17 @@ typedef struct instruction_s
 /* Prototypes */
 void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
+void check_malloc(void *pointer);
+
 void make_instructions(stack_t **stack, instruction_t **inst);
 
+
+void stack_push(stack_t **stack, unsigned int line_number);
+void stack_pall(stack_t **stack, unsigned int line_number);
+void stack_pop(stack_t **stack, unsigned int line_number);
+void stack_pint(stack_t **stack, unsigned int line_number);
+void stack_swap(stack_t **stack, unsigned int line_number);
+void stack_nop(stack_t **stack, unsigned int line_number);
+void stack_add(stack_t **stack, unsigned int line_number);
 
 #endif /* #ifndef MONTY_H */
