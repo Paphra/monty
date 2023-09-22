@@ -8,12 +8,13 @@
  */
 int main(int argc, char **argv)
 {
-	char *file_path, *line;
+	char *file_path;
 	FILE *file;
 	ssize_t line_size;
 	stack_t **stack;
-	size_t line_bfsize = 0, line_count = 0;
+	size_t line_bfsize = 0, line_no = 0;
 
+	line = NULL;
 	check_usage(argc);
 	file_path = argv[1];
 	file = fopen(file_path, "r");
@@ -24,13 +25,14 @@ int main(int argc, char **argv)
 	line_size = getline(&line, &line_bfsize, file);
 	while (line_size >= 0)
 	{
-		line_count++;
-		printf("Line[%ld]: %s", line_count, line);
+		line_no++;
+		printf("Line[%ld]: %s", line_no, line);
 		line_size = getline(&line, &line_bfsize, file);
 	}
 
 	free(line);
 	line = NULL;
+	free(codes);
 	fclose(file);
 
 	return (0);

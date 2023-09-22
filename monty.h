@@ -36,8 +36,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Globals */
-instruction_t **codes;
-int top, bottom, codes_count;
+instruction_t *codes;
+int top, bottom, ncodes;
+size_t line_no;
 char *line;
 
 /* Prototypes */
