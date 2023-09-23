@@ -45,3 +45,14 @@ void free_stack(stack_t **stack)
 		}
 	}
 }
+
+/**
+ * free_global - free all global variables
+ * Return: nothing
+ */
+void free_global(void)
+{
+	free(line);
+	free(codes);
+	free_tokens();
+}

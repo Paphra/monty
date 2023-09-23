@@ -1,6 +1,21 @@
 #include "monty.h"
 
 /**
+ * unknown_code - handle unknown codes
+ * @stack: the stack
+ * @line_no: line nunber
+ * @code: the opcode
+ * Return: nothing
+ */
+void unknown_code(stack_t **stack, ui line_no, char *code)
+{
+	free_global();
+	free_stack(stack);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_no, code);
+	exit(EXIT_FAILURE);
+
+}
+/**
  * workers - initiate work on a line
  * @stack: pointer to the pointer of the head
  * @line_no: line nunber
@@ -25,7 +40,6 @@ void workers(stack_t **stack, ui line_no)
 			}
 			tmp++;
 		}
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_no, code);
-		exit(EXIT_FAILURE);
+		/* unknown_code(stack, line_no, code); */
 	}
 }

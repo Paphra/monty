@@ -56,6 +56,7 @@ int count_tokens(char **tokens);
 char **line_tokens(void);
 void free_tokens(void);
 void free_stack(stack_t **stack);
+void free_global(void);
 
 void stack_push(stack_t **stack, ui line_number);
 void stack_pall(stack_t **stack, ui line_number);
