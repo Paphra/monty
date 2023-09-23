@@ -24,3 +24,24 @@ void make_instructions(void)
 	code->opcode = "pall";
 	code->f = *stack_pall;
 }
+
+/**
+ * free_stack - frees a stack list
+ * @stack: the stack to free
+ * Return: nothing
+ */
+void free_stack(stack_t **stack)
+{
+	stack_t *tmp, *item;
+
+	if (*stack != NULL)
+	{
+		item = *stack;
+		while (item)
+		{
+			tmp = item->next;
+			free(item);
+			item = tmp;
+		}
+	}
+}

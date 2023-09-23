@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ui unsigned int
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,29 +34,38 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, ui line_number);
 } instruction_t;
 
 /* Globals */
 instruction_t *codes;
-int top, bottom, ncodes;
+int ncodes, ntoks;
 size_t line_no;
-char *line;
+char *line, **tokens;
+stack_t *top;
 
 /* Prototypes */
 void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
 void check_malloc(void *pointer);
+void malloc_fail_frees(void);
 
 void make_instructions(void);
 
+int count_tokens(char **tokens);
+char **line_tokens(void);
+void free_tokens(void);
+void free_stack(stack_t **stack);
 
-void stack_push(stack_t **stack, unsigned int line_number);
-void stack_pall(stack_t **stack, unsigned int line_number);
-void stack_pop(stack_t **stack, unsigned int line_number);
-void stack_pint(stack_t **stack, unsigned int line_number);
-void stack_swap(stack_t **stack, unsigned int line_number);
-void stack_nop(stack_t **stack, unsigned int line_number);
-void stack_add(stack_t **stack, unsigned int line_number);
+void stack_push(stack_t **stack, ui line_number);
+void stack_pall(stack_t **stack, ui line_number);
+void stack_pop(stack_t **stack, ui line_number);
+void stack_pint(stack_t **stack, ui line_number);
+void stack_swap(stack_t **stack, ui line_number);
+void stack_nop(stack_t **stack, ui line_number);
+void stack_add(stack_t **stack, ui line_number);
+
+void workers(stack_t **stack, ui line_no);
+
 
 #endif /* #ifndef MONTY_H */

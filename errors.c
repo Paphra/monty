@@ -28,3 +28,15 @@ void check_file_open(FILE *file, char *file_path)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * malloc_fail_frees - faiked to malloc
+ * Return: nothing
+ */
+void malloc_fail_frees(void)
+{
+	fprintf(stderr, "Error: malloc failed");
+	free(line);
+	free_tokens();
+	free(codes);
+}

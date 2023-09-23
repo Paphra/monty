@@ -11,8 +11,9 @@ int main(int argc, char **argv)
 	char *file_path;
 	FILE *file;
 	ssize_t line_size;
-	stack_t **stack;
-	size_t line_bfsize = 0, line_no = 0;
+	stack_t *stack = NULL;
+	size_t line_bfsize = 0;
+	ui line_no = 0;
 
 	line = NULL;
 	check_usage(argc);
@@ -20,19 +21,21 @@ int main(int argc, char **argv)
 	file = fopen(file_path, "r");
 	check_file_open(file, file_path);
 	make_instructions();
-	(void) stack;
-
 	line_size = getline(&line, &line_bfsize, file);
 	while (line_size >= 0)
 	{
 		line_no++;
-		printf("Line[%ld]: %s", line_no, line);
+		tokens = line_tokens();
+		ntoks = count_tokens(tokens);
+		workers(&stack, line_no);
+		free_tokens();
 		line_size = getline(&line, &line_bfsize, file);
 	}
 
 	free(line);
 	line = NULL;
 	free(codes);
+	free_stack(&stack);
 	fclose(file);
 
 	return (0);
