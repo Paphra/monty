@@ -12,6 +12,7 @@ void unknown_code(stack_t **stack, ui line_no, char *code)
 	free_global();
 	free_stack(stack);
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_no, code);
+	free(code);
 	exit(EXIT_FAILURE);
 
 }
@@ -29,7 +30,7 @@ void workers(stack_t **stack, ui line_no)
 
 	if (ntoks > 0)
 	{
-		code = tokens[0];
+		code = strdup(tokens[0]);
 		tmp = codes;
 		for (i = 0; i < ncodes; i++)
 		{
@@ -40,6 +41,9 @@ void workers(stack_t **stack, ui line_no)
 			}
 			tmp++;
 		}
-		/* unknown_code(stack, line_no, code); */
+		if (i == ncodes)
+			unknown_code(stack, line_no, code);
+		else
+			free(code);
 	}
 }
