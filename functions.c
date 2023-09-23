@@ -9,7 +9,7 @@ void make_instructions(void)
 {
 	instruction_t *code;
 
-	ncodes = 5;
+	ncodes = 6;
 	codes = (instruction_t *)malloc(sizeof(instruction_t) * ncodes);
 	if (codes == NULL)
 	{
@@ -31,6 +31,9 @@ void make_instructions(void)
 	code++;
 	code->opcode = "swap";
 	code->f = *stack_swap;
+	code++;
+	code->opcode = "nop";
+	code->f = *stack_nop;
 }
 
 /**
