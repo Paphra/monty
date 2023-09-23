@@ -67,9 +67,12 @@ void free_global(void)
  */
 int only_numbers(char *str)
 {
+	int check = 0;
+
 	while (*str)
 	{
-		if (!isdigit((unsigned char)*str))
+		check = isdigit((unsigned char)*str);
+		if (!check  && *str != '+' && *str != '-')
 			return (0);
 		str++;
 	}
