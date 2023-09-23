@@ -68,6 +68,18 @@ void stack_swap(stack_t **stack, ui line_number);
 void stack_nop(stack_t **stack, ui line_number);
 void stack_add(stack_t **stack, ui line_number);
 
+/* advanved */
+void stack_sub(stack_t **stack, ui line_number);
+void stack_div(stack_t **stack, ui line_number);
+void stack_mul(stack_t **stack, ui line_number);
+void stack_mod(stack_t **stack, ui line_number);
+void stack_pchar(stack_t **stack, ui line_number);
+void stack_pstr(stack_t **stack, ui line_number);
+void stack_rotl(stack_t **stack, ui line_number);
+void stack_rotr(stack_t **stack, ui line_number);
+void stack_stack(stack_t **stack, ui line_number);
+void stack_queue(stack_t **stack, ui line_number);
+
 void workers(stack_t **stack, ui line_no);
 
 

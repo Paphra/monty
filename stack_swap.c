@@ -20,20 +20,20 @@ void swap_usage_fail(ui line_no)
  */
 void stack_swap(stack_t **stack, ui line_number)
 {
-	stack_t *second_last;
+	stack_t *sec, *tmp;
 
 	if (*stack == NULL)
 		swap_usage_fail(line_number);
-	second_last = top->prev;
-	if (second_last == NULL)
+	sec = top->prev;
+	if (sec == NULL)
 	{
 		free_stack(stack);
 		swap_usage_fail(line_number);
 	}
-	top->next = second_last;
-	top->prev = second_last->prev;
-	second_last->next = NULL;
-	second_last->prev = top;
-	top = second_last;
-
+	tmp = top;
+	tmp->prev = sec->prev;
+	sec->next = NULL;
+	sec->prev = tmp;
+	tmp->next = sec;
+	top = sec;
 }
