@@ -9,7 +9,6 @@
 int main(int argc, char **argv)
 {
 	char *file_path;
-	FILE *file;
 	ssize_t line_size;
 	stack_t *stack = NULL;
 	size_t line_bfsize = 0;

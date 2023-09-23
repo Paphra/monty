@@ -54,8 +54,10 @@ void free_stack(stack_t **stack)
 void free_global(void)
 {
 	free(line);
+	line = NULL;
 	free(codes);
 	free_tokens();
+	fclose(file);
 }
 
 /**

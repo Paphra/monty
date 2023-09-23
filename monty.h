@@ -43,6 +43,7 @@ int ncodes, ntoks, data;
 size_t line_no;
 char *line, **tokens;
 stack_t *top;
+FILE *file;
 
 /* Prototypes */
 void check_usage(int argc);

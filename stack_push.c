@@ -7,9 +7,7 @@
  */
 void push_usage_fail(int line_no)
 {
-	free(line);
-	free(codes);
-	free_tokens();
+	free_global();
 	fprintf(stderr, "L%u: usage: push integer\n", line_no);
 	exit(EXIT_FAILURE);
 }
