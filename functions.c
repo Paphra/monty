@@ -9,25 +9,25 @@ void make_instructions(void)
 {
 	instruction_t *code;
 
-	ncodes = 3;
+	ncodes = 4;
 	codes = (instruction_t *)malloc(sizeof(instruction_t) * ncodes);
 	if (codes == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
-
 	code = codes;
 	code->opcode = "push";
 	code->f = *stack_push;
 	code++;
-
 	code->opcode = "pall";
 	code->f = *stack_pall;
 	code++;
-
 	code->opcode = "pint";
 	code->f = *stack_pint;
+	code++;
+	code->opcode = "pop";
+	code->f = *stack_pop;
 }
 
 /**
