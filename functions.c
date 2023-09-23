@@ -2,6 +2,16 @@
 #include <ctype.h>
 
 /**
+ * more_codes - make more instructions
+ * @code: the last code
+ * Return: nothing
+ */
+void more_codes(instruction_t *code)
+{
+	(void) code;
+}
+
+/**
  * make_instructions - make the instructions
  * Return: nothing
  */
@@ -9,7 +19,7 @@ void make_instructions(void)
 {
 	instruction_t *code;
 
-	ncodes = 8;
+	ncodes = 9;
 	codes = (instruction_t *)malloc(sizeof(instruction_t) * ncodes);
 	if (codes == NULL)
 	{
@@ -40,6 +50,10 @@ void make_instructions(void)
 	code++;
 	code->opcode = "sub";
 	code->f = *stack_sub;
+	code++;
+	code->opcode = "div";
+	code->f = *stack_div;
+	more_codes(code);
 }
 
 /**
