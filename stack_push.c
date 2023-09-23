@@ -23,20 +23,13 @@ void push_usage_fail(int line_no)
 void stack_push(stack_t **stack, ui line_number)
 {
 	stack_t *item, *new_item;
-	char *data_str;
 
-	if (ntoks < 2)
+	if (ntoks < 2 || only_numbers(tokens[1]) == 0)
 	{
 		free_stack(stack);
 		push_usage_fail(line_number);
 	}
-	data_str = tokens[1];
-	data = atoi(data_str);
-	if (data == 0 && strcmp(data_str, "0") != 0)
-	{
-		free_stack(stack);
-		push_usage_fail(line_number);
-	}
+	data = atoi(tokens[1]);
 	item = *stack;
 	if (item == NULL)
 	{

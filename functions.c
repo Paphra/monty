@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <ctype.h>
 
 /**
  * make_instructions - make the instructions
@@ -55,4 +56,20 @@ void free_global(void)
 	free(line);
 	free(codes);
 	free_tokens();
+}
+
+/**
+ * only_numbers - checks whether string only contains nos.
+ * @str: the string
+ * Return: 0, if no and 1 is yes
+ */
+int only_numbers(char *str)
+{
+	while (*str)
+	{
+		if (!isdigit((unsigned char)*str))
+			return (0);
+		str++;
+	}
+	return (1);
 }

@@ -49,6 +49,7 @@ void check_usage(int argc);
 void check_file_open(FILE *file, char *file_path);
 void check_malloc(void *pointer);
 void malloc_fail_frees(void);
+int only_numbers(char *str);
 
 void make_instructions(void);
 
