@@ -39,7 +39,7 @@ typedef struct instruction_s
 
 /* Globals */
 instruction_t *codes;
-int ncodes, ntoks;
+int ncodes, ntoks, data;
 size_t line_no;
 char *line, **tokens;
 stack_t *top;

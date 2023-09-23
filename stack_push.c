@@ -22,7 +22,6 @@ void push_usage_fail(int line_no)
  */
 void stack_push(stack_t **stack, ui line_number)
 {
-	int data;
 	stack_t *item, *new_item;
 	char *data_str;
 

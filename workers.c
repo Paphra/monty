@@ -25,5 +25,7 @@ void workers(stack_t **stack, ui line_no)
 			}
 			tmp++;
 		}
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_no, code);
+		exit(EXIT_FAILURE);
 	}
 }
